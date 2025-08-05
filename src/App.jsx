@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
 import OptionsPanel from './components/OptionsPanel';
 import SortOptions from './components/SortOptions';
 import DealList from './components/DealList';
+import './style.css';
+
 
 function App() {
   const [showOptions, setShowOptions] = useState(false);
@@ -34,32 +35,41 @@ function App() {
   });
 
   return (
-    <div style={{ width: 300, padding: 15, fontFamily: 'Arial, sans-serif' }}>
-      <Header />
-      
-      {!showResults && (
-        <>
-          <button onClick={handleFindDeals}>Find Deal</button>
-          <button onClick={() => setShowOptions(!showOptions)} style={{ marginTop: 10, fontSize: '12px' }}>
-            Options
-          </button>
-          {showOptions && (
-            <OptionsPanel
-              currentSettings={settings}
-              onSave={handleSaveSettings}
-            />
-          )}
-        </>
-      )}
+    <div className="app-container">
+      <div className="card">
+        <div>
+          <img src="/assets/muffin-logo.png" alt="Muffin Logo" className="logo" />
+          <h1 className="header-title">Muffins</h1>
+        </div>
 
-      {showResults && (
-        <>
-          <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
-          <DealList deals={sortedDeals} />
-        </>
-      )}
+        {!showResults && (
+          <>
+            <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
+            <button
+              className="options-link"
+              onClick={() => setShowOptions(!showOptions)}
+            >
+              More Options
+            </button>
+            {showOptions && (
+              <OptionsPanel
+                currentSettings={settings}
+                onSave={handleSaveSettings}
+              />
+            )}
+          </>
+        )}
+
+        {showResults && (
+          <>
+            <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
+            <DealList deals={sortedDeals} />
+          </>
+        )}
+      </div>
     </div>
   );
 }
+
 
 export default App;
