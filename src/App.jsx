@@ -1,8 +1,9 @@
+import './style.css';
+import muffinLogo from './assets/muffin_logo.png';
 import React, { useState } from 'react';
 import OptionsPanel from './components/OptionsPanel';
 import SortOptions from './components/SortOptions';
 import DealList from './components/DealList';
-import './style.css';
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
     <div className="app-container">
       <div className="card">
         <div>
-          <img src="/assets/muffin-logo.png" alt="Muffin Logo" className="logo" />
+          <img src={muffinLogo} alt="Muffin Logo" className="logo" />
           <h1 className="header-title">Muffins</h1>
         </div>
 
