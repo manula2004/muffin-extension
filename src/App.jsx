@@ -1,4 +1,4 @@
-import './style.css';
+import './style.css'; 
 import muffinLogo from './assets/muffin_logo.png';
 import React, { useState } from 'react';
 import OptionsPanel from './components/OptionsPanel';
@@ -35,36 +35,38 @@ function App() {
   });
 
   return (
-    <div className="card"> 
-      <div>
-        <img src={muffinLogo} alt="Muffin Logo" className="logo" />
-        <h1 className="header-title">Muffins</h1>
+    <div className="app-container">
+      <div className="card"> 
+        <div>
+          <img src={muffinLogo} alt="Muffin Logo" className="logo" />
+          <h1 className="header-title">Muffins</h1>
+        </div>
+
+        {!showResults && (
+          <>
+            <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
+            <button
+              className="options-link"
+              onClick={() => setShowOptions(!showOptions)}
+            >
+              More Options
+            </button>
+            {showOptions && (
+              <OptionsPanel
+                currentSettings={settings}
+                onSave={handleSaveSettings}
+              />
+            )}
+          </>
+        )}
+
+        {showResults && (
+          <>
+            <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
+            <DealList deals={sortedDeals} />
+          </>
+        )}
       </div>
-
-      {!showResults && (
-        <>
-          <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
-          <button
-            className="options-link"
-            onClick={() => setShowOptions(!showOptions)}
-          >
-            More Options
-          </button>
-          {showOptions && (
-            <OptionsPanel
-              currentSettings={settings}
-              onSave={handleSaveSettings}
-            />
-          )}
-        </>
-      )}
-
-      {showResults && (
-        <>
-          <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
-          <DealList deals={sortedDeals} />
-        </>
-      )}
     </div>
   );
 }

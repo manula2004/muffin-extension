@@ -10,6 +10,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body, #root {
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+}
+
+
 html {
   border-radius: 20px;
   overflow: hidden;
@@ -39,6 +46,13 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
+
+.popup-container {
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+}
+
 
 .logo {
   width: 60px;
