@@ -5,31 +5,27 @@
   color: #213547;
   background-color: #ffffff;
   font-synthesis: none;
+    border-radius: 20px !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-  border-radius: 20px;
-  overflow: hidden;
-}
-
 body {
   margin: 0;
   min-width: 320px;
+  border-radius: 20px !important;
   background-color: #ffffff;
   color: #213547;
-  border-radius: 20px;
-  overflow: hidden; 
 }
 
-#root.app-container {
+#muffin-extension-popup.app-container {
   width: 320px;
   padding: 20px;
   font-family: 'Poppins', sans-serif;
   border-radius: 20px !important;
   overflow: hidden !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .card {
@@ -50,12 +46,12 @@ body {
   font-family: 'Dongle', sans-serif;
   font-size: 36px;
   margin: 0;
-  color: #4B0082; /* dark purple */
+  color: #4B0082;
 }
 
 .find-button {
   font-family: 'Poppins', sans-serif;
-  background-color: #6a0dad; /* purple */
+  background-color: #6a0dad;
   color: white;
   border: none;
   padding: 10px 20px;
