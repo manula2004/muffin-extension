@@ -5,7 +5,6 @@ import OptionsPanel from './components/OptionsPanel';
 import SortOptions from './components/SortOptions';
 import DealList from './components/DealList';
 
-
 function App() {
   const [showOptions, setShowOptions] = useState(false);
   const [showResults, setShowResults] = useState(false);
@@ -36,41 +35,38 @@ function App() {
   });
 
   return (
-    <div className="app-container">
-      <div className="card">
-        <div>
-          <img src={muffinLogo} alt="Muffin Logo" className="logo" />
-          <h1 className="header-title">Muffins</h1>
-        </div>
-
-        {!showResults && (
-          <>
-            <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
-            <button
-              className="options-link"
-              onClick={() => setShowOptions(!showOptions)}
-            >
-              More Options
-            </button>
-            {showOptions && (
-              <OptionsPanel
-                currentSettings={settings}
-                onSave={handleSaveSettings}
-              />
-            )}
-          </>
-        )}
-
-        {showResults && (
-          <>
-            <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
-            <DealList deals={sortedDeals} />
-          </>
-        )}
+    <div className="card"> 
+      <div>
+        <img src={muffinLogo} alt="Muffin Logo" className="logo" />
+        <h1 className="header-title">Muffins</h1>
       </div>
+
+      {!showResults && (
+        <>
+          <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
+          <button
+            className="options-link"
+            onClick={() => setShowOptions(!showOptions)}
+          >
+            More Options
+          </button>
+          {showOptions && (
+            <OptionsPanel
+              currentSettings={settings}
+              onSave={handleSaveSettings}
+            />
+          )}
+        </>
+      )}
+
+      {showResults && (
+        <>
+          <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
+          <DealList deals={sortedDeals} />
+        </>
+      )}
     </div>
   );
 }
-
 
 export default App;
