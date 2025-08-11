@@ -45,6 +45,7 @@ function App() {
         {!showResults && (
           <>
             <button className="find-button" onClick={handleFindDeals}>Find Deals</button>
+            <br/>
             <button
               className="options-link"
               onClick={() => setShowOptions(!showOptions)}
