@@ -44,7 +44,7 @@ function App() {
   });
 
   return (
-    <div className={`app-container ${isLoading ? 'loading-state' : ''}`}>
+    <div className={`app-wrapper${showResults ? ' show-results' : ''}`}>
       <div className={`card ${isLoading ? 'loading-card' : ''}`}>
         {!isLoading ? (
           <>
