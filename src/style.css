@@ -23,19 +23,23 @@ html {
 
 body {
   margin: 0;
-  min-width: 320px;
+  width: 320px;
+  height: 380px;
   background-color: #ffffff;
   color: #213547;
   border-radius: 20px;
-  overflow: hidden; 
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#root.app-container {
-  width: 320px;
-  padding: 20px;
+.app-container {
+  width: 100%;
   font-family: 'Poppins', sans-serif;
   border-radius: 20px !important;
-  overflow: hidden !important;
+  overflow-y: auto !important;
+  box-sizing: border-box;
 }
 
 .card {
@@ -43,6 +47,8 @@ body {
   padding: 20px;
   border-radius: 20px;
   text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .popup-container {
