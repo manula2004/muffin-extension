@@ -113,9 +113,14 @@ body {
   font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
+  border: none !important;
+  border-radius: 12px;
+  transition: background 0.3s, color 0.3s;
 }
-.options-hover {
-  color: #ff0000;
+
+.options-link:hover {
+  color: #7872c0;
+}
 }
 
 a {

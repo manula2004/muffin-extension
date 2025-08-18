@@ -2,7 +2,6 @@ import './style.css';
 import muffinLogo from './assets/muffin_logo.png';
 import React, { useState } from 'react';
 import OptionsPanel from './components/OptionsPanel';
-import SortOptions from './components/SortOptions';
 import DealList from './components/DealList';
 import { Loader } from './components/Loader';
 
@@ -14,7 +13,6 @@ function App() {
     includeSecondHand: false,
     localOnly: true
   });
-  const [sortBy, setSortBy] = useState("sales");
 
   const [deals, setDeals] = useState([]);
 
@@ -39,9 +37,7 @@ function App() {
     setShowOptions(false);
   };
 
-  const sortedDeals = [...deals].sort((a, b) => {
-    return sortBy === "sales" ? b.sales - a.sales : a.price - b.price;
-  });
+  // Deals are no longer sorted by sort options
 
   return (
     <div className={`app-container ${isLoading ? 'loading-state' : ''}`}>
@@ -74,10 +70,7 @@ function App() {
             )}
 
             {showResults && (
-              <>
-                <SortOptions sortBy={sortBy} setSortBy={setSortBy} />
-                <DealList deals={sortedDeals} />
-              </>
+              <DealList deals={deals} />
             )}
           </>
         ) : (
